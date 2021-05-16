@@ -1,30 +1,58 @@
 {
-  "name": "react-typescript",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.14.2",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13",
-    "@babel/preset-typescript": "^7.13.0",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.5",
-    "babel-loader": "^8.2.2",
-    "html-webpack-plugin": "^5.3.1",
-    "typescript": "^4.2.4",
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0",
-    "webpack-dev-server": "^3.11.2"
-  }
+	"name": "react-typescript",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js --open",
+		"build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+	},
+	"keywords": [],
+	"author": "Omkar Kulkarni",
+	"license": "MIT",
+	"dependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.14.2",
+		"@babel/plugin-proposal-class-properties": "^7.13.0",
+		"@babel/plugin-transform-runtime": "^7.14.2",
+		"@babel/preset-env": "^7.14.2",
+		"@babel/preset-react": "^7.13.13",
+		"@babel/preset-typescript": "^7.13.0",
+		"@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+		"@svgr/webpack": "^5.5.0",
+		"@types/react": "^17.0.5",
+		"@types/react-dom": "^17.0.5",
+		"@typescript-eslint/eslint-plugin": "^4.23.0",
+		"@typescript-eslint/parser": "^4.23.0",
+		"autoprefixer": "^10.2.5",
+		"babel-loader": "^8.2.2",
+		"clean-webpack-plugin": "^4.0.0-alpha.0",
+		"copy-webpack-plugin": "^8.1.1",
+		"cross-env": "^7.0.3",
+		"css-loader": "^5.2.4",
+		"css-minimizer-webpack-plugin": "^3.0.0",
+		"dotenv-webpack": "^7.0.2",
+		"eslint": "^7.26.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-import-resolver-typescript": "^2.4.0",
+		"eslint-plugin-import": "^2.23.2",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.23.2",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"html-webpack-plugin": "^5.3.1",
+		"mini-css-extract-plugin": "^1.6.0",
+		"postcss": "^8.2.15",
+		"postcss-loader": "^5.3.0",
+		"react-refresh": "^0.10.0",
+		"style-loader": "^2.0.0",
+		"tailwindcss": "^2.1.2",
+		"terser-webpack-plugin": "^5.1.2",
+		"typescript": "^4.2.4",
+		"webpack": "^5.37.0",
+		"webpack-cli": "^4.7.0",
+		"webpack-dev-server": "^3.11.2",
+		"webpack-merge": "^5.7.3"
+	}
 }
