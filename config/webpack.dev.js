@@ -5,6 +5,19 @@ const common = require('./webpack.common.js')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = merge(common, {
+	module: {
+		rules: [
+			{
+				test: /\.(ts|js)x?$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'babel-loader',
+					},
+				],
+			},
+		],
+	},
 	// Set the mode to development or production
 	mode: 'development',
 
@@ -21,28 +34,6 @@ module.exports = merge(common, {
 		port: 3000,
 	},
 
-	module: {
-		rules: [
-			// ... other rules
-			{
-				test: /\.[ts]sx?$/,
-				exclude: /node_modules/,
-				use: [
-					// ... other loaders
-					{
-						loader: require.resolve('babel-loader'),
-						options: {
-							// ... other options
-							plugins: [
-								// ... other plugins
-								require.resolve('react-refresh/babel'),
-							].filter(Boolean),
-						},
-					},
-				],
-			},
-		],
-	},
 	plugins: [
 		new Dotenv({
 			path: './.env.development',
