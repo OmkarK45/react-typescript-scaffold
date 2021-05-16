@@ -1,17 +1,32 @@
 {
 	"name": "react-typescript",
+	"author": "Omkar Kulkarni",
 	"version": "1.0.0",
+	"license": "MIT",
 	"private": true,
 	"scripts": {
 		"start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js --open",
-		"build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+		"build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+		"lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"keywords": [],
-	"author": "Omkar Kulkarni",
-	"license": "MIT",
 	"dependencies": {
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,json}": [
+			"eslint --fix"
+		],
+		"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write"
+		]
 	},
 	"devDependencies": {
 		"@babel/core": "^7.14.2",
@@ -42,6 +57,8 @@
 		"eslint-plugin-react": "^7.23.2",
 		"eslint-plugin-react-hooks": "^4.2.0",
 		"html-webpack-plugin": "^5.3.1",
+		"husky": "^6.0.0",
+		"lint-staged": "^11.0.0",
 		"mini-css-extract-plugin": "^1.6.0",
 		"postcss": "^8.2.15",
 		"postcss-loader": "^5.3.0",
