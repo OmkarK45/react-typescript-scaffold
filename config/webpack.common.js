@@ -4,16 +4,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // extract css to files
-
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 module.exports = {
 	entry: path.resolve(__dirname, '..', './src/index.tsx'),
 
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js'],
+		plugins: [new TsconfigPathsPlugin()],
 	},
 	module: {
 		rules: [
-			// JavaScript: Use Babel to transpile JavaScript files
 			{
 				test: /\.(ts|js)x?$/,
 				exclude: /node_modules/,
@@ -23,8 +23,6 @@ module.exports = {
 					},
 				],
 			},
-			// Styles: Inject CSS into the head with source maps
-			// Note from OK -> nuked minicssextact fro dev.. instead use style-loader
 			{
 				test: /\.(css)$/,
 				use: ['style-loader', 'css-loader', 'postcss-loader'],
@@ -34,11 +32,7 @@ module.exports = {
 				test: /\.svg$/,
 				use: ['@svgr/webpack'],
 			},
-
-			// Images: Copy image files to build folder
 			{ test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
-
-			// Fonts and SVGs: Inline files
 			{ test: /\.(woff(2)?|eot|ttf|otf|)$/, type: 'asset/inline' },
 		],
 	},

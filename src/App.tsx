@@ -1,6 +1,6 @@
 import React from 'react'
 
 const App: React.FC = () => {
-	return <h1>Hello word</h1>
+	return <div>This works !</div>
 }
 export default App
